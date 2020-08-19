@@ -1,0 +1,22 @@
+<div class="card m-3">
+  <div class="card-header text-white bg-info">Account</div>
+  <div class="card-body">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <span class="icon-currency text-info font-weight-bold mr-3"
+          >&#8372;</span
+        >{{ bill.value | number: "1.2-2" }}
+      </li>
+      <li class="list-group-item">
+        <span class="icon-currency text-info font-weight-bold mr-3"
+          >&#8364;</span
+        >
+        {{ euro | number: "1.2-2" }}
+      </li>
+      <li class="list-group-item">
+        <span class="icon-currency text-info font-weight-bold mr-3">&#36;</span
+        >{{ dollar | number: "1.2-2" }}
+      </li>
+    </ul>
+  </div>
+</div>

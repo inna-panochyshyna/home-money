@@ -1,0 +1,145 @@
+{
+  "users": [
+    {
+      "email": "admin@mail.ru",
+      "password": "123456",
+      "name": "Allan Butler",
+      "id": 1
+    },
+    {
+      "email": "user@mail.ru",
+      "password": "111111",
+      "name": "Agatha MacDonald",
+      "id": 2
+    },
+    {
+      "email": "user1@gmail.com",
+      "password": "111111",
+      "name": "Dexter Round",
+      "id": 3
+    },
+    {
+      "email": "user2@gmail.com",
+      "password": "111111",
+      "name": "James Allford",
+      "id": 4
+    },
+    {
+      "email": "user3@gmail.com",
+      "password": "111111",
+      "name": "Matthew Turner",
+      "id": 5
+    },
+    {
+      "email": "user4@gmail.com",
+      "password": "111111",
+      "name": "Theresa Holiday",
+      "id": 6
+    }
+  ],
+  "bill": {
+    "value": 6730,
+    "currency": "UAH"
+  },
+  "categories": [
+    {
+      "name": "Home",
+      "limit": 2200,
+      "id": 1
+    },
+    {
+      "name": "Food",
+      "limit": 9000,
+      "id": 2
+    },
+    {
+      "name": "Car",
+      "limit": 2000,
+      "id": 3
+    },
+    {
+      "name": "Rest",
+      "limit": 2500,
+      "id": 4
+    },
+    {
+      "name": "Salary",
+      "limit": 4000,
+      "id": 6
+    }
+  ],
+  "events": [
+    {
+      "type": "income",
+      "amount": 20000,
+      "category": 6,
+      "date": "10.08.2020 01:00:34",
+      "description": "Got a salary",
+      "id": 1
+    },
+    {
+      "type": "income",
+      "amount": 2500,
+      "category": 4,
+      "date": "10.08.2020 19:49:02",
+      "description": "Got a certificate for rest",
+      "id": 2
+    },
+    {
+      "type": "outcome",
+      "amount": 5300,
+      "category": 1,
+      "date": "13.08.2020 19:49:02",
+      "description": "Bought a dishwasher",
+      "id": 3
+    },
+    {
+      "type": "outcome",
+      "amount": 2470,
+      "category": 2,
+      "date": "14.08.2020 14:00:58",
+      "description": "Bought food for a week",
+      "id": 5
+    },
+    {
+      "type": "outcome",
+      "amount": 1000,
+      "category": 3,
+      "date": "15.08.2020 14:01:58",
+      "description": "Fueled up the car",
+      "id": 6
+    },
+    {
+      "type": "outcome",
+      "amount": 4000,
+      "category": 2,
+      "date": "20.08.2020 01:07:53",
+      "description": "Bought food for a week",
+      "id": 8
+    },
+    {
+      "type": "income",
+      "amount": 3000,
+      "category": 3,
+      "date": "20.08.2020 01:14:05",
+      "description": "Received insurance compensation",
+      "id": 9
+    },
+    {
+      "type": "outcome",
+      "amount": 1000,
+      "category": 3,
+      "date": "20.08.2020 01:14:48",
+      "description": "Сar repairs",
+      "id": 10
+    },
+    {
+      "type": "outcome",
+      "amount": 1000,
+      "category": 6,
+      "date": "20.08.2020 01:32:04",
+      "description": "Paid taxes",
+      "id": 11
+    }
+  ]
+}

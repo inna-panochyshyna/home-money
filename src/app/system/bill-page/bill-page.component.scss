@@ -1,0 +1,8 @@
+.icon-refresh {
+  width: 20px;
+  filter: brightness(0) invert(1);
+  transition: 2s;
+  &:hover {
+    transform: rotate(1turn);
+  }
+}

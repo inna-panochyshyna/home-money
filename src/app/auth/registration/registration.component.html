@@ -1,0 +1,166 @@
+<div class="card-text">
+  <form
+    class="register-form bg-light p-3"
+    [formGroup]="form"
+    (ngSubmit)="onSubmit()"
+  >
+    <fieldset class="border rounded p-3">
+      <legend class="form-legend px-2">Registration for access</legend>
+      <div class="form-group mb-0">
+        <label for="userEmail">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          id="userEmail"
+          aria-describedby="emailWarning"
+          formControlName="email"
+          [ngClass]="{
+            'is-invalid': form.get('email').invalid && form.get('email').touched
+          }"
+        />
+        <small
+          id="emailWarning"
+          class="form-text text-danger"
+          *ngIf="
+            form.get('email').invalid && form.get('email').touched;
+            else emptyP
+          "
+        >
+          <p
+            *ngIf="
+              !form.get('email').hasError('email') &&
+              !form.get('email').hasError('required') &&
+              form.get('email').hasError('forbiddenEmail')
+            "
+          >
+            Sorry, this email is already taken!
+          </p>
+          <p
+            *ngIf="
+              form.get('email').hasError('email') &&
+              !form.get('email').hasError('required') &&
+              !form.get('email').hasError('forbiddenEmail')
+            "
+          >
+            Your email is incorrect
+          </p>
+          <p
+            *ngIf="
+              !form.get('email').hasError('email') &&
+              form.get('email').hasError('required') &&
+              !form.get('email').hasError('forbiddenEmail')
+            "
+          >
+            Please input your email
+          </p>
+        </small>
+      </div>
+      <div class="form-group mb-0">
+        <label for="userPassword">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="userPassword"
+          aria-describedby="passwordWarning"
+          formControlName="password"
+          [ngClass]="{
+            'is-invalid':
+              form.get('password').invalid && form.get('password').touched
+          }"
+        />
+        <small
+          id="passwordWarning"
+          class="form-text text-danger"
+          *ngIf="
+            form.get('password').invalid && form.get('password').touched;
+            else emptyP
+          "
+        >
+          <p
+            *ngIf="
+              form.get('password').hasError('minlength') &&
+              !form.get('password').hasError('required')
+            "
+          >
+            Your password should be more than 6 symbols
+          </p>
+          <p
+            *ngIf="
+              !form.get('password').hasError('minlength') &&
+              form.get('password').hasError('required')
+            "
+          >
+            Please input your password
+          </p>
+        </small>
+      </div>
+      <div class="form-group mb-0">
+        <label for="userName">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="userName"
+          aria-describedby="nameWarning"
+          formControlName="name"
+          [ngClass]="{
+            'is-invalid': form.get('name').invalid && form.get('name').touched
+          }"
+        />
+        <small
+          id="nameWarning"
+          class="form-text text-danger"
+          *ngIf="
+            form.get('name').invalid && form.get('name').touched;
+            else emptyP
+          "
+        >
+          <p>
+            Please input your name
+          </p>
+        </small>
+      </div>
+      <div class="form-check mb-0">
+        <input
+          type="checkbox"
+          class="form-check-input"
+          id="accept"
+          aria-describedby="acceptWarning"
+          formControlName="accept"
+          [ngClass]="{
+            'is-invalid':
+              form.get('accept').invalid && form.get('accept').touched
+          }"
+        />
+        <label for="accept" class="form-check-label"
+          >Acceptance of the terms and conditions</label
+        >
+        <small
+          id="acceptWarning"
+          class="form-text text-danger"
+          *ngIf="
+            form.get('accept').invalid && form.get('accept').touched;
+            else emptyP
+          "
+        >
+          <p>
+            Please accept the terms and conditions
+          </p>
+        </small>
+      </div>
+      <ng-template #emptyP>
+        <p class="form-small-empty"></p>
+      </ng-template>
+      <button
+        type="submit"
+        class="btn btn-dark"
+        [disabled]="form.invalid || form.pending"
+      >
+        Submit
+      </button>
+    </fieldset>
+  </form>
+  <div class="d-flex flex-row justify-content-center align-items-center">
+    <p class="pr-1 mb-0">Already have an account?</p>
+    <a routerLink="/login" class="mb-0 text-info">Login</a>
+  </div>
+</div>

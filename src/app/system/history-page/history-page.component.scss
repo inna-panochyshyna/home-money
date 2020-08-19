@@ -1,0 +1,8 @@
+.trash-icon {
+  height: 30px;
+  filter: brightness(0) invert(1);
+  &:hover {
+    cursor: pointer;
+    filter: brightness(1) invert(0);
+  }
+}

@@ -1,0 +1,58 @@
+<article class="system-content">
+  <h1 class="text-warning ml-3 mb-5 pl-3">Planning page</h1>
+  <section *ngIf="!isLoaded" class="text-center">
+    <app-loader></app-loader>
+  </section>
+  <section *ngIf="isLoaded">
+    <div class="row m-0">
+      <div class="col-12">
+        <div class="card m-3">
+          <div
+            class="card-header bg-secondary text-white d-flex flex-row align-items-center justify-content-between"
+          >
+            <div class="header-block mx-3">Outcome</div>
+            <div class="header-block mx-3">
+              Total balance:
+              <span class="text-warning"
+                >{{ bill.value | number: "1.2-2" }} UAH</span
+              >
+            </div>
+          </div>
+          <div class="card-body">
+            <div *ngFor="let c of categories" class="row m-0">
+              <div class="col-6 mb-3">
+                <div class="progress">
+                  <div
+                    class="progress-bar bg-{{ getCategoryColor(c) }}"
+                    role="progressbar"
+                    [ngStyle]="{ width: getCategoryPercent(c) }"
+                    aria-valuenow="{getCategoryPercent(c)}"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+                <div>{{ c.name }}</div>
+              </div>
+              <div class="col-6 mb-3">
+                <p>
+                  <span class="text-{{ getCategoryColor(c) }}">{{
+                    getCategoryCost(c) | number: "1.2-2"
+                  }}</span>
+                  of
+                  <span class="text-primary">{{
+                    c.limit | number: "1.2-2"
+                  }}</span>
+                  | left
+                  <span class="text-{{ getCategoryColor(c) }}">{{
+                    c.limit - getCategoryCost(c) | number: "1.2-2"
+                  }}</span>
+                  UAH
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</article>

@@ -1,0 +1,80 @@
+<div class="card m-3">
+  <div class="card-header bg-secondary text-white">
+    <div class="header-block">Edit category</div>
+  </div>
+  <div class="card-body">
+    <div *ngIf="message.text" class="alert alert-{{ message.type }}">
+      {{ message.text }}
+    </div>
+    <form
+      class="register-form bg-light p-3 my-3 border rounded"
+      (ngSubmit)="submitForm(form)"
+      #form="ngForm"
+    >
+      <div class="form-group">
+        <label for="nameCategoryEdit">Select the category</label>
+        <select
+          class="form-control"
+          id="nameCategoryEdit"
+          [(ngModel)]="currentCategoryId"
+          name="type"
+          required
+          #type="ngModel"
+          (change)="onCategoryChange()"
+        >
+          <option
+            *ngFor="let category of categories"
+            value="{{ category.id }}"
+            >{{ category.name }}</option
+          >
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="nameCategoryEdit">Change the name of category</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nameCategoryEdit"
+          aria-describedby="categoryWarning"
+          [ngModel]="currentCategory.name"
+          name="name"
+          required
+          #name="ngModel"
+          [ngClass]="{ 'is-invalid': name.invalid && name.touched }"
+        />
+        <small
+          id="nameWarning"
+          class="form-text text-danger"
+          *ngIf="name.invalid && name.touched"
+        >
+          Please input the name of category
+        </small>
+      </div>
+      <div class="form-group">
+        <label for="limitCategoryEdit">Change the limit</label>
+        <input
+          type="number"
+          class="form-control"
+          id="limitCategoryEdit"
+          aria-describedby="limitWarning"
+          [ngModel]="currentCategory.limit"
+          name="limit"
+          required
+          min="1"
+          #limit="ngModel"
+          [ngClass]="{ 'is-invalid': limit.invalid && limit.touched }"
+        />
+        <small
+          id="limitWarning"
+          class="form-text text-danger"
+          *ngIf="limit.invalid && limit.touched"
+        >
+          Please input the limit
+        </small>
+      </div>
+      <button type="submit" class="btn btn-dark" [disabled]="!form.valid">
+        Edit
+      </button>
+    </form>
+  </div>
+</div>

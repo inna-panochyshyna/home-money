@@ -1,0 +1,38 @@
+<article class="system-content">
+  <h1 class="text-success mx-3 mb-5 pl-3">History page</h1>
+  <section *ngIf="!isLoaded" class="text-center">
+    <app-loader></app-loader>
+  </section>
+  <section *ngIf="isLoaded">
+    <div class="row row-cols-1 row-cols-md-3 m-0">
+      <div *ngFor="let e of events; let index = index" class="col p-0">
+        <div class="card m-3">
+          <div
+            class="card-header text-capitalize text-white d-flex flex-row align-items-center justify-content-between"
+            [ngClass]="{
+              'bg-primary': e.type === 'income',
+              'bg-danger': e.type === 'outcome'
+            }"
+          >
+            <p class="mb-0">{{ e.type }}</p>
+            <img class="trash-icon" src="../../../assets/img/icon-trash.png" alt="Trash icon" (click)="onDeleteEvent(e, index)"/>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title text-center">{{ e.catName }}</h5>
+            <div class="card-text text-center">
+              <p class="text-secondary mb-1">
+                <span *ngIf="e.type === 'income'">+</span>
+                <span *ngIf="e.type === 'outcome'">-</span>
+                {{ e.amount }} UAH
+              </p>
+              <p class="mb-1">{{ e.description }}</p>
+            </div>
+          </div>
+          <div class="card-footer text-right">
+            <small class="text-muted">Date: {{ e.date | slice: 0:10 }}</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</article>

@@ -1,0 +1,59 @@
+<div class="card m-3">
+  <div class="card-header bg-dark text-white">
+    <div class="header-block">Add category</div>
+  </div>
+  <div class="card-body">
+    <form
+      class="register-form bg-light p-3 my-3 border rounded"
+      (ngSubmit)="submitForm(form)"
+      #form="ngForm"
+    >
+      <div class="form-group">
+        <label for="nameCategory">Name of category</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nameCategory"
+          aria-describedby="categoryWarning"
+          ngModel
+          name="name"
+          required
+          #name="ngModel"
+          [ngClass]="{ 'is-invalid': name.invalid && name.touched }"
+        />
+        <small
+          id="nameWarning"
+          class="form-text text-danger"
+          *ngIf="name.invalid && name.touched"
+        >
+          Please input the name of category
+        </small>
+      </div>
+      <div class="form-group">
+        <label for="limitCategory">Money limit</label>
+        <input
+          type="number"
+          class="form-control"
+          id="limitCategory"
+          aria-describedby="limitWarning"
+          [ngModel]="1"
+          name="limit"
+          required
+          min="1"
+          #limit="ngModel"
+          [ngClass]="{ 'is-invalid': limit.invalid && limit.touched }"
+        />
+        <small
+          id="limitWarning"
+          class="form-text text-danger"
+          *ngIf="limit.invalid && limit.touched"
+        >
+          Please input the limit
+        </small>
+      </div>
+      <button type="submit" class="btn btn-dark" [disabled]="!form.valid">
+        Add
+      </button>
+    </form>
+  </div>
+</div>
