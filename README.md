@@ -4,8 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Installation
 
-Install the dependencies and start the server.
-Run `npm install`
+Run `npm install` to install the dependencies and start the server.
 
 ## Development server
 
@@ -13,7 +12,7 @@ Run `npm run dev` for a dev server. Navigate to `http://localhost:4200/`. The ap
 
 ## Build
 
-Run `npm run build` to build the project. The build artifacts will be stored in the `dist/` directory. Run `npm run build-prod` flag for a production build.
+Run `npm run build` to build the project. The build artifacts will be stored in the `dist/` directory. Run `npm run build-prod` for a production build.
 
 ## Further help
 
